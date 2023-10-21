@@ -1,10 +1,20 @@
 import React from 'react';
 import Square from './Square';
 
-function Board() {
+function Board({ gameState, setGameState, turnState, setTurnState }) {
+
+  const updateTurn = () => {
+    setTurnState((prev) => (prev === 'circle') ? 'cross': 'circle');
+  }
+
   return (
     <div className='game-board'>
-        <Square />
+        { 
+          gameState.map((block, idx) => (
+            <Square key={idx} id={idx} block={block} updateTurn={updateTurn} turnState={turnState} setGameState={setGameState}/>
+          ))
+        }
+        
     </div>
   )
 }

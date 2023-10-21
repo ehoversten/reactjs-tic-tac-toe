@@ -4,13 +4,17 @@ import Square from './components/Square'
 import './App.css'
 
 function App() {
-  const [gameState, setGameState] = useState(["", "", "", "", "", "", "", "", ""])
+  const [gameState, setGameState] = useState(["", "", "", "", "", "", "", "", "circle"]);
+  // Define turn state --> 'circle' | 'cross'
+  const [turnState, setTurnState] = useState('circle');
 
+  console.log(gameState);
+  
   return (
     <>
-      <div>
+      <div className='app-container'>
         <h1>React Tic-Tac-Toe</h1> 
-        <Board gameState={gameState} setGameState={setGameState}/>
+        <Board gameState={gameState} setGameState={setGameState} turnState={turnState} setTurnState={setTurnState}/>
       </div>
     </>
   )
