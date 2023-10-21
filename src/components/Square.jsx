@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Square({ setGameState, turnState, updateTurn, id, block }) {
+function Square({ gameState, setGameState, turnState, updateTurn, id, block }) {
 
   const handleClick = (event) => {
     console.log(event.target);
@@ -9,7 +9,14 @@ function Square({ setGameState, turnState, updateTurn, id, block }) {
     
     if(!block) {
       console.log("open")
-      setGameState((prev) => prev[id] = turnState);
+      let newState = gameState.map((curr, idx) => {
+        if(idx === id) {
+          return turnState;
+        } else {
+          return curr;
+        }
+      })
+      setGameState(newState);
     }
 
     updateTurn();

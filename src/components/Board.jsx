@@ -11,7 +11,14 @@ function Board({ gameState, setGameState, turnState, setTurnState }) {
     <div className='game-board'>
         { 
           gameState.map((block, idx) => (
-            <Square key={idx} id={idx} block={block} updateTurn={updateTurn} turnState={turnState} setGameState={setGameState}/>
+            <Square 
+              key={idx} 
+              id={idx} 
+              block={block} 
+              updateTurn={updateTurn} 
+              turnState={turnState} 
+              gameState={gameState} 
+              setGameState={setGameState}/>
           ))
         }
         
